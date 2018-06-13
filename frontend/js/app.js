@@ -172,6 +172,12 @@ angular.module("studyAtSjtu",['chart.js']).service('MainService',[MainService])
             else return 0
         };
 
+        self.compare_by_third_score=function(a,b){
+            if(a[2]<b[2]) return 1;
+            else if (a[2]>b[2]) return -1;
+            else return 0
+        };
+
     self.view_single=function (num,from) {
         self.current_single_num=num;
         self.prev_tab=from;
