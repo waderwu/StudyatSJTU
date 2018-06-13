@@ -4,6 +4,7 @@ function MainService(){
     self.content_classes=1;
     self.content_search=2;
     self.content_single=3;
+    self.content_ranking=4;
 
     self.content=self.content_classes;
 
@@ -25,6 +26,10 @@ function MainService(){
 
     self.if_content_single=function () {
         return (self.content==self.content_single);
+    }
+
+    self.if_content_ranking=function () {
+        return (self.content==self.content_ranking);
     }
 }
 
@@ -61,6 +66,10 @@ angular.module("studyAtSjtu",['chart.js']).service('MainService',[MainService])
         {num:7,name:"计算机网-蒋兴浩-2018",year:2018,teacher:"蒋兴浩",rating:3,score:90,people:55},
         {num:8,name:"嵌入式-陆海宁-2018",year:2018,teacher:"陆海宁",rating:5,score:95,people:75}];
 
+    self.student_score_table_thisyear=[[99,98,87],[97,98,99],[98,99,97]];
+
+    self.student_score_table_overall=[[89,88,77],[87,88,89],[88,89,77]];
+
     self.comment_css=function (complete,outdate) {
         if(complete){
             if(outdate)
@@ -86,6 +95,8 @@ angular.module("studyAtSjtu",['chart.js']).service('MainService',[MainService])
     self.if_content_search=MainService.if_content_search;
 
     self.if_content_single=MainService.if_content_single;
+
+    self.if_content_ranking=MainService.if_content_ranking;
 
     self.get_class_intro=function (record) {
         return ("平均分： "+record.score+"; 选课人数： "+record.people);
@@ -235,5 +246,8 @@ angular.module("studyAtSjtu",['chart.js']).service('MainService',[MainService])
     var self=this;
     self.change_content_to_classes=function () {
         MainService.change_content(MainService.content_classes);
+    };
+    self.change_content_to_ranking=function () {
+        MainService.change_content(MainService.content_ranking);
     }
 }]);
