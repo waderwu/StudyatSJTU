@@ -1,0 +1,150 @@
+html{
+    min-width: 992px;
+}
+
+.searchnnn{
+    background-color: firebrick;
+}
+
+.task-complete{
+    text-decoration: line-through;
+}
+
+
+.task-miss-outdate{
+    color:#5e5e5e;
+    background-color: #ffc600;
+}
+
+.task-complete{
+    text-line-through: double;
+}
+
+.task-complete-outdate{
+    text-line-through: single;
+    color:green;
+}
+
+.star-checked {
+    color: orange;
+}
+
+.modal-mywidth{
+    width:500px;
+}
+
+.my-single{
+    margin-left:20px;
+    margin-right: 20px;
+}
+
+.single-head{
+    padding:30px;
+    text-align: center;
+    border-bottom: 3px solid #8E8E8E;
+}
+
+.trends-canvas{
+    padding: 10px;
+
+}
+
+.analysis-canvas{
+    width:75%;
+    float:left;
+}
+
+.analysis-comment{
+    float:right;
+    width: 25%;
+}
+
+.single-overview,.single-tasks{
+    padding-top:50px;
+    padding-bottom:50px;
+    padding-left:100px;
+    padding-right:100px;
+}
+
+.single-title{
+    padding-top:50px;
+    padding-right:100px;
+}
+
+.single-title h2{
+    color:orange;
+    font-size:2em;
+    font-weight: bold;
+
+}
+
+.single-overview p{
+    margin-top: 20px;
+}
+
+.single-overview .avg{
+    float:right;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.single-overview .avg h2{
+    font-size: 3em;
+    color:#d8703f;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.single-tab .task-table{
+    width:50%;
+    float:left;
+    padding-right: 5px;
+    overflow: auto;
+}
+
+.single-tab .resource-table{
+    width:50%;
+    float:right;
+    padding-left: 5px;
+    overflow: auto;
+}
+
+.table-bar{
+    height:20px;
+}
+
+.more-icon{
+    float:right;
+    margin-right: 20px;
+}
+
+.single-rating{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.single-comments{
+    margin-top: 20px;
+}
+
+.star-ranker{
+    padding-bottom: 20px;
+    float:right;
+}
+
+.single-a-comment{
+    box-shadow: 0px 0px 15px 0px #D6D6D6;
+}
+
+.name-input{
+    float:left;
+    width:50% !important;
+}
+
+.comment-text{
+    max-height: 6em;
+    overflow: auto;
+}
+
+.my-single .breadcrumb{
+    margin-top:10px;
+}
