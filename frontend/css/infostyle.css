@@ -1,5 +1,5 @@
 html{
-    min-width: 992px;
+    min-width: 690px;
 }
 
 .searchnnn{
@@ -95,16 +95,12 @@ html{
 }
 
 .single-tab .task-table{
-    width:50%;
-    float:left;
-    padding-right: 5px;
+    width:100%;
     overflow: auto;
 }
 
 .single-tab .resource-table{
-    width:50%;
-    float:right;
-    padding-left: 5px;
+    width:100%;
     overflow: auto;
 }
 
@@ -115,6 +111,11 @@ html{
 .more-icon{
     float:right;
     margin-right: 20px;
+
+}
+
+.cursor-pointer{
+    cursor: pointer;
 }
 
 .single-rating{
@@ -148,3 +149,14 @@ html{
 .my-single .breadcrumb{
     margin-top:10px;
 }
+
+.score-table{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.markdown-area{
+    line-height: 1.5;
+
+}
+

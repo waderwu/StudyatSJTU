@@ -155,7 +155,8 @@
                                             <td>
                                                 <div ng-class="ctl.comment_css(task.complete,task.outdate)"
                                                      data-toggle="modal"
-                                                     data-target="#{{class.name+task.num+ctl.popout}}">
+                                                     data-target="#{{class.name+task.num+ctl.popout}}"
+                                                    class="cursor-pointer">
                                                     <p ng-bind="task.comment"></p>
                                                 </div>
                                             </td>
@@ -225,6 +226,10 @@
                             <canvas id="analysis" class="chart chart-bar" chart-data="data2"
                                     chart-labels="labels2" chart-series="series2"></canvas>
 
+                            <div data-toggle="modal"
+                                 data-target="#class-ranking" class="more-icon">
+                                    <p class="cursor-pointer">分数详情 <i class="fa fa-angle-right" aria-hidden="true"></i></p>
+                            </div>
                         </div>
                         <div class="analysis-comment">
                             <div class="single-rating">
@@ -242,16 +247,11 @@
                             </div>
                             <p>选课人数：{{ctl.current_single.people}}</p>
                             <p>挂科率：{{ctl.current_single.failrate}}</p></div>
-                        <div class="avg"><p>平均分：</p></p><h2>{{ctl.current_single.score}}</h2></div>
+                        <div class="avg"><p>平均分：</p><h2>{{ctl.current_single.score}}</h2></div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="single-tasks">
                         <div class="task-table">
-                            <div class="table-bar">
-                                <div class="more-icon">
-                                    <p><a herf="#">more <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
-                                </div>
-                            </div>
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -264,7 +264,8 @@
                                 <tr ng-repeat="task in ctl.current_single.tasks">
                                     <td>
                                         <div data-toggle="modal"
-                                             data-target="#{{ctl.current_single.name+task.num+ctl.popout_s}}">
+                                             data-target="#{{ctl.current_single.name+task.num+ctl.popout_s}}"
+                                            class="cursor-pointer">
                                             <p ng-bind="task.comment"></p></div>
                                     </td>
                                     <td><p ng-bind="task.release"></p></td>
@@ -272,13 +273,13 @@
                                 </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="resource-table">
                             <div class="table-bar">
                                 <div class="more-icon">
-                                    <p><a herf="#">more <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+                                    <p class="cursor-pointer"><a herf="#">更多任务 <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="resource-table">
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -289,12 +290,18 @@
                                 <tr ng-repeat="rsrc in ctl.current_single.resources">
                                     <td>
                                         <div data-toggle="modal"
-                                             data-target="#{{ctl.current_single.name+rsrc.name+ctl.popout_rs}}">
+                                             data-target="#{{ctl.current_single.name+rsrc.name+ctl.popout_rs}}"
+                                            class="cursor-pointer">
                                             <p ng-bind="rsrc.name"></p></div>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
+                            <div class="table-bar">
+                                <div class="more-icon">
+                                    <p class="cursor-pointer"><a herf="#">更多资源 <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -305,15 +312,15 @@
                             <div class="contact-form2">
                                 <div class="name-input"><input type="text" value="Name" ng-model="ctl.comment_form_user" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'anonymous';}" required=""></div>
                                 <div class="star-ranker">
-                                    <span class="fa fa-star fa-3x" id="star1" ng-click="ctl.put_ranking(1)"
+                                    <span class="fa fa-star fa-3x cursor-pointer" id="star1" ng-click="ctl.put_ranking(1)"
                                           ng-class="ctl.get_star_rating_value(1,ctl.comment_form_ranking)"></span>
-                                    <span class="fa fa-star fa-3x" id="star2" ng-click="ctl.put_ranking(2)"
+                                    <span class="fa fa-star fa-3x cursor-pointer" id="star2" ng-click="ctl.put_ranking(2)"
                                           ng-class="ctl.get_star_rating_value(2,ctl.comment_form_ranking)"></span>
-                                    <span class="fa fa-star fa-3x" id="star3" ng-click="ctl.put_ranking(3)"
+                                    <span class="fa fa-star fa-3x cursor-pointer" id="star3" ng-click="ctl.put_ranking(3)"
                                           ng-class="ctl.get_star_rating_value(3,ctl.comment_form_ranking)"></span>
-                                    <span class="fa fa-star fa-3x" id="star4" ng-click="ctl.put_ranking(4)"
+                                    <span class="fa fa-star fa-3x cursor-pointer" id="star4" ng-click="ctl.put_ranking(4)"
                                           ng-class="ctl.get_star_rating_value(4,ctl.comment_form_ranking)"></span>
-                                    <span class="fa fa-star fa-3x" id="star5" ng-click="ctl.put_ranking(5)"
+                                    <span class="fa fa-star fa-3x cursor-pointer" id="star5" ng-click="ctl.put_ranking(5)"
                                           ng-class="ctl.get_star_rating_value(5,ctl.comment_form_ranking)"></span>
                                 </div>
                                 <textarea type="text" ng-model="ctl.comment_form_text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
@@ -369,7 +376,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body" ng-bind-html="ctl.get_trusted_html(task.detail)">
+                        <div class="modal-body markdown-area" ng-bind-html="ctl.get_trusted_html(task.detail)">
 
                         </div>
 
@@ -395,7 +402,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" ng-bind-html="ctl.get_trusted_html(task.detail)">
+                    <div class="modal-body markdown-area" ng-bind-html="ctl.get_trusted_html(task.detail)">
                     </div>
                     <div class="modal-footer">
                         <a type="button" class="item_add single-item hvr-outline-out button2"
@@ -418,7 +425,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" ng-bind-html="ctl.get_trusted_html(rsrc.detail)">
+                    <div class="modal-body markdown-area" ng-bind-html="ctl.get_trusted_html(rsrc.detail)">
                     </div>
                     <div class="modal-body">
                         <a herf="{{rsrc.url}}">资源链接</a>
@@ -431,6 +438,57 @@
             </div>
         </div>
         <!--//Current resources details-->
+        <!--class ranking-->
+        <div class="modal fade" id="class-ranking"
+             tabindex="-1"
+             role="dialog" aria-labelledby="class-ranking" aria-hidden="false">
+            <div class="modal-dialog modal-dialog-centered modal-mywidth" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">成绩排名</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="score-table">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>排名</th>
+                                    <th ng-click="ctl.current_single.scorelist.sort(ctl.compare_by_overall_score)" class="cursor-pointer">总分 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                                    <th ng-click="ctl.current_single.scorelist.sort(ctl.compare_by_test_score)" class="cursor-pointer">考试成绩 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                                    <th>平时分</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="record in ctl.current_single.scorelist">
+                                    <td>
+                                        <p ng-bind="$index+1"></p>
+                                    </td>
+                                    <td>
+                                        <p ng-bind="record[0]"></p>
+                                    </td>
+                                    <td>
+                                        <p ng-bind="record[1]"></p>
+                                    </td>
+                                    <td>
+                                        <p ng-bind="record[2]"></p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a type="button" class="item_add single-item hvr-outline-out button2"
+                           data-dismiss="modal">返回</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--//class ranking-->
+
     </div>
 </div>
 
