@@ -5,6 +5,8 @@ function MainService(){
     self.content_search=2;
     self.content_single=3;
     self.content_ranking=4;
+    self.content_personal=5;
+    self.content_recommend=6;
 
     self.content=self.content_classes;
 
@@ -26,10 +28,16 @@ function MainService(){
 
     self.if_content_single=function () {
         return (self.content==self.content_single);
-    }
+    };
 
     self.if_content_ranking=function () {
         return (self.content==self.content_ranking);
+    };
+    self.if_content_personal=function () {
+        return (self.content==self.content_personal);
+    };
+    self.if_content_recommend=function () {
+        return (self.content==self.content_recommend);
     }
 }
 
@@ -70,6 +78,10 @@ angular.module("studyAtSjtu",['chart.js']).service('MainService',[MainService])
 
     self.student_score_table_overall=[[89,88,77],[87,88,89],[88,89,77]];
 
+    self.recommend_teachers=[{name:"操作系统（B）",t1:"薛质",t2:"刘功申",t3:"范磊"},{name:"计算机通信网（A)",t1:"蒋兴浩",t2:"姚丽红",t3:"范磊"},{name:"数据结构",t1:"范磊",t2:"孟魁",t3:"俞勇"}]
+
+    self.recommend_courses={r1:"交响音乐鉴赏",r2:"生命科学发展史",r3:"管理学",r4:"数据科学导论",r5:"神奇的蘑菇",r6:"基因与人",r7:"社会学",r8:"量子力学",r9:"数学史"};
+
     self.comment_css=function (complete,outdate) {
         if(complete){
             if(outdate)
@@ -97,6 +109,10 @@ angular.module("studyAtSjtu",['chart.js']).service('MainService',[MainService])
     self.if_content_single=MainService.if_content_single;
 
     self.if_content_ranking=MainService.if_content_ranking;
+
+    self.if_content_personal=MainService.if_content_personal;
+
+    self.if_content_recommend=MainService.if_content_recommend;
 
     self.get_class_intro=function (record) {
         return ("平均分： "+record.score+"; 选课人数： "+record.people);
@@ -249,5 +265,11 @@ angular.module("studyAtSjtu",['chart.js']).service('MainService',[MainService])
     };
     self.change_content_to_ranking=function () {
         MainService.change_content(MainService.content_ranking);
+    };
+    self.change_content_to_personal=function () {
+        MainService.change_content(MainService.content_personal);
+    };
+    self.change_content_to_recommend=function () {
+        MainService.change_content(MainService.content_recommend);
     }
 }]);
