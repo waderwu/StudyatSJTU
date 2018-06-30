@@ -69,10 +69,10 @@ angular.module("studyAtSjtu",['chart.js']).service('MainService',[MainService])
         {num:4,name:"Windows",tasks:{task1:{num:1,comment:"实验1很长很长很长很长很长很长123123123",complete:false,release:"2/14",ddl:"3/14",detail:"##任务详情\n    如此这般",outdate:false},task2:{num:2,comment:"实验2",complete:true,release:"2/14",ddl:"3/14",detail:"##任务详情\n    如此这般",outdate:false},task3:{num:3,comment:"实验3",complete:false,release:"2/14",ddl:"3/14",detail:"##任务详情\n    如此这般",outdate:true}},info:"上海交通大学是我国历史最悠久、享誉海内外的著名高等学府之一，是教育部直属并与上海市共建的全国重点大学。经过122年的不懈努力，上海交通大学已经成为一所“综合性、研究型、国际化”的国内一流、国际知名大学。 "}
         ];
 
-    self.search_result=[{num:5,name:"操作系统-薛质-2018",year:2018,teacher:"薛质",rating:4,score:85,people:55},
-        {num:6,name:"企业管理-李建华-2018",year:2018,teacher:"李建华",rating:2,score:80,people:60},
-        {num:7,name:"计算机网-蒋兴浩-2018",year:2018,teacher:"蒋兴浩",rating:3,score:90,people:55},
-        {num:8,name:"嵌入式-陆海宁-2018",year:2018,teacher:"陆海宁",rating:5,score:95,people:75}];
+    self.search_result=[{num:5,name:"自然语言处理-刘功申-2018",year:2018,teacher:"刘功申",rating:5,score:85,people:55},
+        {num:6,name:"操作系统-刘功申-2018",year:2018,teacher:"李建华",rating:3,score:80,people:60},
+        {num:7,name:"自然语言处理-刘功申-2017",year:2018,teacher:"蒋兴浩",rating:3,score:90,people:55},
+        {num:8,name:"操作系统-刘功申-2017",year:2018,teacher:"陆海宁",rating:4,score:95,people:75}];
 
     self.student_score_table_thisyear=[[99,98,87],[97,98,99],[98,99,97]];
 
@@ -142,8 +142,11 @@ angular.module("studyAtSjtu",['chart.js']).service('MainService',[MainService])
 
     self.current_single={num:5,name:"操作系统-薛质-2018",year:2018,finish:true,teacher:"薛质",rating:4,score:85,people:55,failrate:"3%",scorelist:[70,70,70,70,80,80,81],history_average:[70,71,70,69,67,72]};
 
-    self.current_single_comments={page:1,maxpage:5,comments:[{user:"anonymous",time:"2017/7/1",text:"不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错不错",
-            rating:4},{user:"anonymous",time:"2017/7/1",text:"不好",rating:2},{user:"anonymous",time:"2017/7/1",text:"还行",rating:3}]};
+    self.current_single_comments_top=[{user:"anonymous",time:"2017/7/1",text:"大家可以去看看《深入解析Windows系统》第4章",
+        rating:5,like:77}];
+
+    self.current_single_comments={page:1,maxpage:5,comments:[{user:"anonymous",time:"2017/7/1",text:"希望给出参考资料",
+            rating:4,like:5},{user:"anonymous",time:"2017/7/1",text:"好难啊",rating:2,like:0},{user:"anonymous",time:"2017/7/1",text:"不知道怎么做",rating:3,like:7}]};
 
     $scope.labels=['2010','2011','2012','2013','2014','2015','2016','2017','2018'];
 
@@ -254,7 +257,7 @@ angular.module("studyAtSjtu",['chart.js']).service('MainService',[MainService])
 
 }]).controller("SearchCtl",["MainService",function (MainService) {
     var self=this;
-    self.inp="查找课程";
+    self.inp="查找课程或教师";
     self.submit_search=function () {
         MainService.change_content(MainService.content_search);
     }

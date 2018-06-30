@@ -46,8 +46,10 @@
     <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
     <!-- //for bootstrap working -->
     <!-- Bootstrap Date-Picker Plugin -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <!--//-->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
@@ -79,11 +81,19 @@
                                     <li class="active menu__item menu__item--current"><a class="menu__link" href=""
                                                                                          ng-click="ctl.change_content_to_classes()">首页<span
                                             class="sr-only">(current)</span></a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="" ng-click="ctl.change_content_to_personal()">个人中心</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="" ng-click="ctl.change_content_to_recommend()">选课推荐</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="" ng-click="ctl.change_content_to_ranking()">成绩表</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="" onclick="alert('This page is under test');">about</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="" onclick="alert('Email: hbyyeah@qq.com');">contact</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href=""
+                                                               ng-click="ctl.change_content_to_personal()">个人中心</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href=""
+                                                               ng-click="ctl.change_content_to_recommend()">选课推荐</a>
+                                    </li>
+                                    <li class=" menu__item"><a class="menu__link" href=""
+                                                               ng-click="ctl.change_content_to_ranking()">成绩表</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href=""
+                                                               onclick="alert('This page is under test');">about</a>
+                                    </li>
+                                    <li class=" menu__item"><a class="menu__link" href=""
+                                                               onclick="alert('Email: hbyyeah@qq.com');">contact</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -105,7 +115,7 @@
                 <form ng-submit="ctl.submit_search()">
                     <div class="search">
                         <input type="search" ng-model="ctl.inp" onfocus="this.value = '';"
-                               onblur="if (this.value == '') {this.value = '查找课程';}" required="">
+                               onblur="if (this.value == '') {this.value = '查找课程或教师';}" required="">
                     </div>
                     <div class="sear-sub">
                         <input type="submit" value=" ">
@@ -157,7 +167,8 @@
                 <div class="product-men" ng-repeat="class in ctl.classes">
                     <div class="men-pro-item simpleCart_shelfItem">
                         <div class="item-info-product ">
-                            <h4><a href="" ng-bind="class.name" ng-click="ctl.view_single(class.num,ctl.from_index)"></a></h4>
+                            <h4><a href="" ng-bind="class.name"
+                                   ng-click="ctl.view_single(class.num,ctl.from_index)"></a></h4>
                             <div class="info-product-price">
                                 <!--<span class="item_price" ng-bind="class.info"></span>-->
                                 <form>
@@ -176,7 +187,7 @@
                                                 <div ng-class="ctl.comment_css(task.complete,task.outdate)"
                                                      data-toggle="modal"
                                                      data-target="#{{class.name+task.num+ctl.popout}}"
-                                                    class="cursor-pointer">
+                                                     class="cursor-pointer">
                                                     <p ng-bind="task.comment"></p>
                                                 </div>
                                             </td>
@@ -200,7 +211,8 @@
                 <div class="product-men" ng-repeat="class_record in ctl.search_result">
                     <div class="men-pro-item simpleCart_shelfItem">
                         <div class="item-info-product ">
-                            <h4><a href="" ng-bind="class_record.name" ng-click="ctl.view_single(class.num,ctl.from_search)"></a></h4>
+                            <h4><a href="" ng-bind="class_record.name"
+                                   ng-click="ctl.view_single(class.num,ctl.from_search)"></a></h4>
                             <div class="info-product-price-c">
                                 <div>
                                 <span class="fa fa-star"
@@ -227,68 +239,84 @@
 
             <div class="sap_tabs" ng-show="ctl.if_content_ranking()">
                 <div class="sap_tabs">
-                    <div  id="horizontalTab" style="display: block;width:100%;margin:0px;">
+                    <div id="horizontalTab" style="display: block;width:100%;margin:0px;">
                         <ul class="resp-tabs-list">
                             <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>本学期</span></li>
                             <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>所有学期</span></li>
                         </ul>
                         <div class="resp-tabs-container">
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                <div class="single-overview"><table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>排名</th>
-                                        <th ng-click="ctl.student_score_table_thisyear.sort(ctl.compare_by_overall_score)" class="cursor-pointer">GPA <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                        <th ng-click="ctl.student_score_table_thisyear.sort(ctl.compare_by_test_score)" class="cursor-pointer">学积分 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                        <th ng-click="ctl.student_score_table_thisyear.sort(ctl.compare_by_third_score)" class="cursor-pointer">核心学积分 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr ng-repeat="record in ctl.student_score_table_thisyear">
-                                        <td>
-                                            <p ng-bind="$index+1"></p>
-                                        </td>
-                                        <td>
-                                            <p ng-bind="record[0]"></p>
-                                        </td>
-                                        <td>
-                                            <p ng-bind="record[1]"></p>
-                                        </td>
-                                        <td>
-                                            <p ng-bind="record[2]"></p>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table></div>
+                                <div class="single-overview">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>排名</th>
+                                            <th ng-click="ctl.student_score_table_thisyear.sort(ctl.compare_by_overall_score)"
+                                                class="cursor-pointer">GPA <i class="fa fa-caret-down"
+                                                                              aria-hidden="true"></i></th>
+                                            <th ng-click="ctl.student_score_table_thisyear.sort(ctl.compare_by_test_score)"
+                                                class="cursor-pointer">学积分 <i class="fa fa-caret-down"
+                                                                              aria-hidden="true"></i></th>
+                                            <th ng-click="ctl.student_score_table_thisyear.sort(ctl.compare_by_third_score)"
+                                                class="cursor-pointer">核心学积分 <i class="fa fa-caret-down"
+                                                                                aria-hidden="true"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="record in ctl.student_score_table_thisyear">
+                                            <td>
+                                                <p ng-bind="$index+1"></p>
+                                            </td>
+                                            <td>
+                                                <p ng-bind="record[0]"></p>
+                                            </td>
+                                            <td>
+                                                <p ng-bind="record[1]"></p>
+                                            </td>
+                                            <td>
+                                                <p ng-bind="record[2]"></p>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
                             </div>
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-                                <div class="single-overview"><table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>排名</th>
-                                        <th ng-click="ctl.student_score_table_overall.sort(ctl.compare_by_overall_score)" class="cursor-pointer">GPA <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                        <th ng-click="ctl.student_score_table_overall.sort(ctl.compare_by_test_score)" class="cursor-pointer">学积分 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                        <th ng-click="ctl.student_score_table_overall.sort(ctl.compare_by_third_score)" class="cursor-pointer">核心学积分 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr ng-repeat="record in ctl.student_score_table_overall">
-                                        <td>
-                                            <p ng-bind="$index+1"></p>
-                                        </td>
-                                        <td>
-                                            <p ng-bind="record[0]"></p>
-                                        </td>
-                                        <td>
-                                            <p ng-bind="record[1]"></p>
-                                        </td>
-                                        <td>
-                                            <p ng-bind="record[2]"></p>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table></div>
+                                <div class="single-overview">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>排名</th>
+                                            <th ng-click="ctl.student_score_table_overall.sort(ctl.compare_by_overall_score)"
+                                                class="cursor-pointer">GPA <i class="fa fa-caret-down"
+                                                                              aria-hidden="true"></i></th>
+                                            <th ng-click="ctl.student_score_table_overall.sort(ctl.compare_by_test_score)"
+                                                class="cursor-pointer">学积分 <i class="fa fa-caret-down"
+                                                                              aria-hidden="true"></i></th>
+                                            <th ng-click="ctl.student_score_table_overall.sort(ctl.compare_by_third_score)"
+                                                class="cursor-pointer">核心学积分 <i class="fa fa-caret-down"
+                                                                                aria-hidden="true"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="record in ctl.student_score_table_overall">
+                                            <td>
+                                                <p ng-bind="$index+1"></p>
+                                            </td>
+                                            <td>
+                                                <p ng-bind="record[0]"></p>
+                                            </td>
+                                            <td>
+                                                <p ng-bind="record[1]"></p>
+                                            </td>
+                                            <td>
+                                                <p ng-bind="record[2]"></p>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
                             </div>
                         </div>
@@ -321,7 +349,7 @@
 
                             <div data-toggle="modal"
                                  data-target="#class-ranking" class="more-icon">
-                                    <p class="cursor-pointer">分数详情 <i class="fa fa-angle-right" aria-hidden="true"></i></p>
+                                <p class="cursor-pointer">分数详情 <i class="fa fa-angle-right" aria-hidden="true"></i></p>
                             </div>
                         </div>
                         <div class="analysis-comment">
@@ -340,7 +368,8 @@
                             </div>
                             <p>选课人数：{{ctl.current_single.people}}</p>
                             <p>挂科率：{{ctl.current_single.failrate}}</p></div>
-                        <div class="avg"><p>平均分：</p><h2>{{ctl.current_single.score}}</h2></div>
+                        <div class="avg"><p>平均分：</p>
+                            <h2>{{ctl.current_single.score}}</h2></div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="single-tasks">
@@ -358,7 +387,7 @@
                                     <td>
                                         <div data-toggle="modal"
                                              data-target="#{{ctl.current_single.name+task.num+ctl.popout_s}}"
-                                            class="cursor-pointer">
+                                             class="cursor-pointer">
                                             <p ng-bind="task.comment"></p></div>
                                     </td>
                                     <td><p ng-bind="task.release"></p></td>
@@ -368,7 +397,8 @@
                             </table>
                             <div class="table-bar">
                                 <div class="more-icon">
-                                    <p class="cursor-pointer"><a herf="#">更多任务 <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+                                    <p class="cursor-pointer"><a herf="#">更多任务 <i class="fa fa-angle-right"
+                                                                                  aria-hidden="true"></i></a></p>
                                 </div>
                             </div>
                         </div>
@@ -384,7 +414,7 @@
                                     <td>
                                         <div data-toggle="modal"
                                              data-target="#{{ctl.current_single.name+rsrc.name+ctl.popout_rs}}"
-                                            class="cursor-pointer">
+                                             class="cursor-pointer">
                                             <p ng-bind="rsrc.name"></p></div>
                                     </td>
                                 </tr>
@@ -392,7 +422,8 @@
                             </table>
                             <div class="table-bar">
                                 <div class="more-icon">
-                                    <p class="cursor-pointer"><a herf="#">更多资源 <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+                                    <p class="cursor-pointer"><a herf="#">更多资源 <i class="fa fa-angle-right"
+                                                                                  aria-hidden="true"></i></a></p>
                                 </div>
                             </div>
                         </div>
@@ -400,29 +431,42 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="single-comments">
-                        <div class="comment-form"><form ng-submit="ctl.submit_comment()">
-                            <h3 class="tittle">评论</h3>
-                            <div class="contact-form2">
-                                <div class="name-input"><input type="text" value="Name" ng-model="ctl.comment_form_user" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'anonymous';}" required=""></div>
-                                <div class="star-ranker">
-                                    <span class="fa fa-star fa-3x cursor-pointer" id="star1" ng-click="ctl.put_ranking(1)"
+                        <div class="comment-form">
+                            <form ng-submit="ctl.submit_comment()">
+                                <h3 class="tittle">评论</h3>
+                                <div class="contact-form2">
+                                    <div class="name-input"><input type="text" value="Name"
+                                                                   ng-model="ctl.comment_form_user"
+                                                                   onfocus="this.value = '';"
+                                                                   onblur="if (this.value == '') {this.value = 'anonymous';}"
+                                                                   required=""></div>
+                                    <div class="star-ranker">
+                                    <span class="fa fa-star fa-3x cursor-pointer" id="star1"
+                                          ng-click="ctl.put_ranking(1)"
                                           ng-class="ctl.get_star_rating_value(1,ctl.comment_form_ranking)"></span>
-                                    <span class="fa fa-star fa-3x cursor-pointer" id="star2" ng-click="ctl.put_ranking(2)"
-                                          ng-class="ctl.get_star_rating_value(2,ctl.comment_form_ranking)"></span>
-                                    <span class="fa fa-star fa-3x cursor-pointer" id="star3" ng-click="ctl.put_ranking(3)"
-                                          ng-class="ctl.get_star_rating_value(3,ctl.comment_form_ranking)"></span>
-                                    <span class="fa fa-star fa-3x cursor-pointer" id="star4" ng-click="ctl.put_ranking(4)"
-                                          ng-class="ctl.get_star_rating_value(4,ctl.comment_form_ranking)"></span>
-                                    <span class="fa fa-star fa-3x cursor-pointer" id="star5" ng-click="ctl.put_ranking(5)"
-                                          ng-class="ctl.get_star_rating_value(5,ctl.comment_form_ranking)"></span>
+                                        <span class="fa fa-star fa-3x cursor-pointer" id="star2"
+                                              ng-click="ctl.put_ranking(2)"
+                                              ng-class="ctl.get_star_rating_value(2,ctl.comment_form_ranking)"></span>
+                                        <span class="fa fa-star fa-3x cursor-pointer" id="star3"
+                                              ng-click="ctl.put_ranking(3)"
+                                              ng-class="ctl.get_star_rating_value(3,ctl.comment_form_ranking)"></span>
+                                        <span class="fa fa-star fa-3x cursor-pointer" id="star4"
+                                              ng-click="ctl.put_ranking(4)"
+                                              ng-class="ctl.get_star_rating_value(4,ctl.comment_form_ranking)"></span>
+                                        <span class="fa fa-star fa-3x cursor-pointer" id="star5"
+                                              ng-click="ctl.put_ranking(5)"
+                                              ng-class="ctl.get_star_rating_value(5,ctl.comment_form_ranking)"></span>
+                                    </div>
+                                    <textarea type="text" ng-model="ctl.comment_form_text" onfocus="this.value = '';"
+                                              onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+                                    <input type="submit" value="提交评论">
                                 </div>
-                                <textarea type="text" ng-model="ctl.comment_form_text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-                                <input type="submit" value="提交评论" >
-                            </div>
-                        </form>
+                            </form>
                         </div>
                         <div class="comment-list">
-                            <div class="item-info-product single-a-comment" ng-repeat="comment in ctl.current_single_comments.comments">
+                            <h3 class="comment-bar">最热评论</h3>
+                            <div class="item-info-product single-a-comment"
+                                 ng-repeat="comment in ctl.current_single_comments_top">
                                 <h4 ng-bind="comment.user"></h4>
                                 <div>
                                 <span class="fa fa-star"
@@ -437,134 +481,170 @@
                                           ng-class="ctl.get_star_rating_value(5,comment.rating)"></span>
                                 </div>
                                 <div class="info-product-price comment-text" ng-bind="comment.text"></div>
+                                <div class="single-comment-bottom">
+                                    <div class="comment-button cursor-pointer">
+                                        <p><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> ({{comment.like}})</p></div>
+                                    <div class="comment-button cursor-pointer"><a>回复</a></div>
+                                </div>
                             </div>
-                            <nav>
-                                <ul class="pagination">
-                                    <li ng-class="ctl.get_nav_class(-1)"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                    <li ng-class="ctl.get_nav_class(1)"><a href="#">1</a></li>
-                                    <li ng-class="ctl.get_nav_class(2)"><a href="#">2</a></li>
-                                    <li ng-class="ctl.get_nav_class(3)"><a href="#">3</a></li>
-                                    <li ng-class="ctl.get_nav_class(4)"><a href="#">4</a></li>
-                                    <li ng-class="ctl.get_nav_class(5)"><a href="#">5</a></li>
-                                    <li ng-class="ctl.get_nav_class(-2)"><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                                </ul>
-                            </nav>
+                            <h3 class="comment-bar">最新评论</h3>
+                            <div class="item-info-product single-a-comment"
+                                 ng-repeat="comment in ctl.current_single_comments.comments">
+                                <h4 ng-bind="comment.user"></h4>
+                                <div>
+                                <span class="fa fa-star"
+                                      ng-class="ctl.get_star_rating_value(1,comment.rating)"></span>
+                                    <span class="fa fa-star"
+                                          ng-class="ctl.get_star_rating_value(2,comment.rating)"></span>
+                                    <span class="fa fa-star"
+                                          ng-class="ctl.get_star_rating_value(3,comment.rating)"></span>
+                                    <span class="fa fa-star"
+                                          ng-class="ctl.get_star_rating_value(4,comment.rating)"></span>
+                                    <span class="fa fa-star"
+                                          ng-class="ctl.get_star_rating_value(5,comment.rating)"></span>
+                                </div>
+                                <div class="info-product-price comment-text" ng-bind="comment.text"></div>
+                                <div class="single-comment-bottom">
+                                    <div class="comment-button cursor-pointer">
+                                        <p><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> ({{comment.like}})</p></div>
+                                    <div class="comment-button cursor-pointer"><a>回复</a></div>
+                                </div>
+                            </div>
                         </div>
+                        <nav>
+                            <ul class="pagination">
+                                <li ng-class="ctl.get_nav_class(-1)"><a href="#" aria-label="Previous"><span
+                                        aria-hidden="true">«</span></a></li>
+                                <li ng-class="ctl.get_nav_class(1)"><a href="#">1</a></li>
+                                <li ng-class="ctl.get_nav_class(2)"><a href="#">2</a></li>
+                                <li ng-class="ctl.get_nav_class(3)"><a href="#">3</a></li>
+                                <li ng-class="ctl.get_nav_class(4)"><a href="#">4</a></li>
+                                <li ng-class="ctl.get_nav_class(5)"><a href="#">5</a></li>
+                                <li ng-class="ctl.get_nav_class(-2)"><a href="#" aria-label="Next"><span
+                                        aria-hidden="true">»</span></a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
-
                 </div>
-            </div>
-            <div class="sap_tabs" ng-show="ctl.if_content_personal()">
-                <div class="sap_tabs">
-                    <div  id="horizontalTab1" style="display: block;width:100%;margin:0px;">
-                        <ul class="resp-tabs-list">
-                            <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>个人设置</span></li>
-                            <li class="resp-tab-item" aria-controls="tab_item-3" role="tab"><span>课代表</span></li>
-                        </ul>
-                        <div class="resp-tabs-container">
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
-                                <div class="single-overview">
-                                    <form class="myform contact-form2">
-                                        <div class="form-group">
-                                            <label for="daybefore">提前提醒：</label>
-                                            <select class="form-control"  id="daybefore">
-                                                <option>1 天</option>
-                                                <option>2 天</option>
-                                                <option>3 天</option>
-                                                <option>4 天</option>
-                                                <option>5 天</option>
 
+            </div>
+        </div>
+        <div class="sap_tabs" ng-show="ctl.if_content_personal()">
+            <div class="sap_tabs">
+                <div id="horizontalTab1" style="display: block;width:100%;margin:0px;">
+                    <ul class="resp-tabs-list">
+                        <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>个人设置</span></li>
+                        <li class="resp-tab-item" aria-controls="tab_item-3" role="tab"><span>课代表</span></li>
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+                            <div class="single-overview">
+                                <form class="myform contact-form2">
+                                    <div class="form-group">
+                                        <label for="daybefore">提前提醒：</label>
+                                        <select class="form-control" id="daybefore">
+                                            <option>1 天</option>
+                                            <option>2 天</option>
+                                            <option>3 天</option>
+                                            <option>4 天</option>
+                                            <option>5 天</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="informEmail">提醒邮箱</label>
+                                        <input type="password" class="form-control" id="informEmail" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="保存修改">
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-3">
+                            <div class="single-overview">
+                                <form class="myform contact-form2">
+                                    <div class="form-group row">
+                                        <label for="inputCourse" class="col-sm-2 col-form-label">课程</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" id="inputCourse" placeholder="Email">
+                                                <option>操作系统</option>
+                                                <option>数据库概论</option>
                                             </select>
                                         </div>
-
-                                        <div class="form-group">
-                                            <label for="informEmail">提醒邮箱</label>
-                                            <input type="password" class="form-control" id="informEmail" placeholder="">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="date1" class="col-sm-2 col-form-label">发布日期</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="date1" name="date1" placeholder="MM/DD/YYY"
+                                                   type="text"/>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="submit" value="保存修改">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="date2" class="col-sm-2 col-form-label">截止日期</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="date2" name="date2" placeholder="MM/DD/YYY"
+                                                   type="text"/>
                                         </div>
-                                    </form>
-                                </div>
-
-                            </div>
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-3">
-                                <div class="single-overview">
-                                    <form class="myform contact-form2">
-                                        <div class="form-group row">
-                                            <label for="inputCourse" class="col-sm-2 col-form-label">课程</label>
-                                            <div class="col-sm-10">
-                                                <select class="form-control" id="inputCourse" placeholder="Email">
-                                                    <option>操作系统</option>
-                                                    <option>数据库概论</option>
-                                                </select>
-                                            </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="comment1" class="col-sm-2 col-form-label">详情</label>
+                                        <div class="col-sm-10">
+                                        <textarea class="form-control" id="comment1" name="comment1"
+                                                  placeholder="......" type=""></textarea>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="date1" class="col-sm-2 col-form-label">发布日期</label>
-                                            <div class="col-sm-10">
-                                                <input  class="form-control" id="date1" name="date1" placeholder="MM/DD/YYY" type="text"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="date2" class="col-sm-2 col-form-label">截止日期</label>
-                                            <div class="col-sm-10">
-                                                <input  class="form-control" id="date2" name="date2" placeholder="MM/DD/YYY" type="text"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="comment1" class="col-sm-2 col-form-label">详情</label>
-                                            <div class="col-sm-10">
-                                                <textarea  class="form-control" id="comment1" name="comment1" placeholder="......" type=""></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-sm-10">
-                                            <input type="submit" value="保存修改">
-                                        </div>
-                                    </form>
-                                    <script>
-                                        $(document).ready(function(){
-                                            var date_input=$('input[name="date1"]'); //our date input has the name "date"
-                                            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-                                            var options={
-                                                format: 'mm/dd/yyyy',
-                                                container: container,
-                                                todayHighlight: true,
-                                                autoclose: true,
-                                            };
-                                            date_input.datepicker(options);
-                                        })
-                                        $(document).ready(function(){
-                                            var date_input=$('input[name="date2"]'); //our date input has the name "date"
-                                            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-                                            var options={
-                                                format: 'mm/dd/yyyy',
-                                                container: container,
-                                                todayHighlight: true,
-                                                autoclose: true,
-                                            };
-                                            date_input.datepicker(options);
-                                        })
-                                    </script>
-
-                                </div>
+                                    </div>
+                                    <div class="form-group col-sm-10">
+                                        <input type="submit" value="保存修改">
+                                    </div>
+                                </form>
+                                <script>
+                                    $(document).ready(function () {
+                                        var date_input = $('input[name="date1"]'); //our date input has the name "date"
+                                        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                                        var options = {
+                                            format: 'mm/dd/yyyy',
+                                            container: container,
+                                            todayHighlight: true,
+                                            autoclose: true,
+                                        };
+                                        date_input.datepicker(options);
+                                    })
+                                    $(document).ready(function () {
+                                        var date_input = $('input[name="date2"]'); //our date input has the name "date"
+                                        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                                        var options = {
+                                            format: 'mm/dd/yyyy',
+                                            container: container,
+                                            todayHighlight: true,
+                                            autoclose: true,
+                                        };
+                                        date_input.datepicker(options);
+                                    })
+                                </script>
 
                             </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="clearfix"></div>
             </div>
-            <div class="sap_tabs" ng-show="ctl.if_content_recommend()">
-                <div class="sap_tabs">
-                    <div  id="horizontalTab2" style="display: block;width:100%;margin:0px;">
-                        <ul class="resp-tabs-list">
-                            <li class="resp-tab-item" aria-controls="tab_item-4" role="tab"><span>教师推荐</span></li>
-                            <li class="resp-tab-item" aria-controls="tab_item-5" role="tab"><span>选修课推荐</span></li>
-                        </ul>
-                        <div class="resp-tabs-container">
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-4">
-                                <div class="single-overview"><table class="table">
+            <div class="clearfix"></div>
+        </div>
+        <div class="sap_tabs" ng-show="ctl.if_content_recommend()">
+            <div class="sap_tabs">
+                <div id="horizontalTab2" style="display: block;width:100%;margin:0px;">
+                    <ul class="resp-tabs-list">
+                        <li class="resp-tab-item" aria-controls="tab_item-4" role="tab"><span>教师推荐</span></li>
+                        <li class="resp-tab-item" aria-controls="tab_item-5" role="tab"><span>选修课推荐</span></li>
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-4">
+                            <div class="single-overview">
+                                <table class="table">
                                     <thead>
                                     <tr>
                                         <th>课程名</th>
@@ -589,111 +669,89 @@
                                         </td>
                                     </tr>
                                     </tbody>
-                                </table></div>
-
+                                </table>
                             </div>
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-5">
 
-                                <div class="single-overview">
-                                    <div><form><select class="form-control" style="margin-bottom: 20px;">
+                        </div>
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-5">
+
+                            <div class="single-overview">
+                                <div>
+                                    <form><select class="form-control" style="margin-bottom: 20px;">
                                         <option>任意</option>
                                         <option>人文科学</option>
                                         <option>社会科学</option>
                                         <option>自然科学</option>
-                                    </select></select></form></div>
+                                    </select></select></form>
+                                </div>
 
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>科目1</th>
-                                            <th>科目2</th>
-                                            <th>科目3</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>总评</p>
-                                            </td>
-                                            <td>
-                                                <p ng-bind="ctl.recommend_courses.r1"></p>
-                                            </td>
-                                            <td>
-                                                <p ng-bind="ctl.recommend_courses.r2"></p>
-                                            </td>
-                                            <td>
-                                                <p ng-bind="ctl.recommend_courses.r3"></p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>平均分</p>
-                                            </td>
-                                            <td>
-                                                <p ng-bind="ctl.recommend_courses.r4"></p>
-                                            </td>
-                                            <td>
-                                                <p ng-bind="ctl.recommend_courses.r5"></p>
-                                            </td>
-                                            <td>
-                                                <p ng-bind="ctl.recommend_courses.r6"></p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>挂科率</p>
-                                            </td>
-                                            <td>
-                                                <p ng-bind="ctl.recommend_courses.r7"></p>
-                                            </td>
-                                            <td>
-                                                <p ng-bind="ctl.recommend_courses.r8"></p>
-                                            </td>
-                                            <td>
-                                                <p ng-bind="ctl.recommend_courses.r9"></p>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table></div>
-
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>科目1</th>
+                                        <th>科目2</th>
+                                        <th>科目3</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <p>总评</p>
+                                        </td>
+                                        <td>
+                                            <p ng-bind="ctl.recommend_courses.r1"></p>
+                                        </td>
+                                        <td>
+                                            <p ng-bind="ctl.recommend_courses.r2"></p>
+                                        </td>
+                                        <td>
+                                            <p ng-bind="ctl.recommend_courses.r3"></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>平均分</p>
+                                        </td>
+                                        <td>
+                                            <p ng-bind="ctl.recommend_courses.r4"></p>
+                                        </td>
+                                        <td>
+                                            <p ng-bind="ctl.recommend_courses.r5"></p>
+                                        </td>
+                                        <td>
+                                            <p ng-bind="ctl.recommend_courses.r6"></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>挂科率</p>
+                                        </td>
+                                        <td>
+                                            <p ng-bind="ctl.recommend_courses.r7"></p>
+                                        </td>
+                                        <td>
+                                            <p ng-bind="ctl.recommend_courses.r8"></p>
+                                        </td>
+                                        <td>
+                                            <p ng-bind="ctl.recommend_courses.r9"></p>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
 
-        <!--My tasks details-->
-        <div ng-repeat="class in ctl.classes">
-            <div class="modal fade" ng-repeat="task in class.tasks" id="{{class.name+task.num+ctl.popout}}"
-                 tabindex="-1"
-                 role="dialog" aria-labelledby="{{task.comment}}" aria-hidden="false">
-                <div class="modal-dialog modal-dialog-centered modal-mywidth" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" ng-bind="task.comment"></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body markdown-area" ng-bind-html="ctl.get_trusted_html(task.detail)">
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <a type="button" class="item_add single-item hvr-outline-out button2"
-                               data-dismiss="modal">返回</a>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="clearfix"></div>
         </div>
-        <!--//My tasks details-->
+    </div>
 
-        <!--Current single tasks details-->
-        <div class="modal fade" ng-repeat="task in ctl.current_single.tasks" id="{{ctl.current_single.name+task.num+ctl.popout_s}}"
+    <!--My tasks details-->
+    <div ng-repeat="class in ctl.classes">
+        <div class="modal fade" ng-repeat="task in class.tasks" id="{{class.name+task.num+ctl.popout}}"
              tabindex="-1"
              role="dialog" aria-labelledby="{{task.comment}}" aria-hidden="false">
             <div class="modal-dialog modal-dialog-centered modal-mywidth" role="document">
@@ -705,93 +763,124 @@
                         </button>
                     </div>
                     <div class="modal-body markdown-area" ng-bind-html="ctl.get_trusted_html(task.detail)">
-                    </div>
-                    <div class="modal-footer">
-                        <a type="button" class="item_add single-item hvr-outline-out button2"
-                           data-dismiss="modal">返回</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--//Current single tasks details-->
 
-        <!--Current resources details-->
-        <div class="modal fade" ng-repeat="rsrc in ctl.current_single.resources" id="{{ctl.current_single.name+rsrc.name+ctl.popout_rs}}"
-             tabindex="-1"
-             role="dialog" aria-labelledby="{{rsrc.name}}" aria-hidden="false">
-            <div class="modal-dialog modal-dialog-centered modal-mywidth" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" ng-bind="rsrc.name"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                     </div>
-                    <div class="modal-body markdown-area" ng-bind-html="ctl.get_trusted_html(rsrc.detail)">
-                    </div>
-                    <div class="modal-body">
-                        <a herf="{{rsrc.url}}">资源链接</a>
-                    </div>
-                    <div class="modal-footer">
-                        <a type="button" class="item_add single-item hvr-outline-out button2"
-                           data-dismiss="modal">返回</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--//Current resources details-->
-        <!--class ranking-->
-        <div class="modal fade" id="class-ranking"
-             tabindex="-1"
-             role="dialog" aria-labelledby="class-ranking" aria-hidden="false">
-            <div class="modal-dialog modal-dialog-centered modal-mywidth" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">成绩排名</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="score-table">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>排名</th>
-                                    <th ng-click="ctl.current_single.scorelist.sort(ctl.compare_by_overall_score)" class="cursor-pointer">总分 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                    <th ng-click="ctl.current_single.scorelist.sort(ctl.compare_by_test_score)" class="cursor-pointer">考试成绩 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                    <th ng-click="ctl.current_single.scorelist.sort(ctl.compare_by_third_score)" class="cursor-pointer">平时分 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr ng-repeat="record in ctl.current_single.scorelist">
-                                    <td>
-                                        <p ng-bind="$index+1"></p>
-                                    </td>
-                                    <td>
-                                        <p ng-bind="record[0]"></p>
-                                    </td>
-                                    <td>
-                                        <p ng-bind="record[1]"></p>
-                                    </td>
-                                    <td>
-                                        <p ng-bind="record[2]"></p>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <a type="button" class="item_add single-item hvr-outline-out button2"
-                           data-dismiss="modal">返回</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--//class ranking-->
 
+                    <div class="modal-footer">
+                        <a type="button" class="item_add single-item hvr-outline-out button2"
+                           data-dismiss="modal">返回</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!--//My tasks details-->
+
+    <!--Current single tasks details-->
+    <div class="modal fade" ng-repeat="task in ctl.current_single.tasks"
+         id="{{ctl.current_single.name+task.num+ctl.popout_s}}"
+         tabindex="-1"
+         role="dialog" aria-labelledby="{{task.comment}}" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered modal-mywidth" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" ng-bind="task.comment"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body markdown-area" ng-bind-html="ctl.get_trusted_html(task.detail)">
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="item_add single-item hvr-outline-out button2"
+                       data-dismiss="modal">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//Current single tasks details-->
+
+    <!--Current resources details-->
+    <div class="modal fade" ng-repeat="rsrc in ctl.current_single.resources"
+         id="{{ctl.current_single.name+rsrc.name+ctl.popout_rs}}"
+         tabindex="-1"
+         role="dialog" aria-labelledby="{{rsrc.name}}" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered modal-mywidth" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" ng-bind="rsrc.name"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body markdown-area" ng-bind-html="ctl.get_trusted_html(rsrc.detail)">
+                </div>
+                <div class="modal-body">
+                    <a herf="{{rsrc.url}}">资源链接</a>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="item_add single-item hvr-outline-out button2"
+                       data-dismiss="modal">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//Current resources details-->
+    <!--class ranking-->
+    <div class="modal fade" id="class-ranking"
+         tabindex="-1"
+         role="dialog" aria-labelledby="class-ranking" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered modal-mywidth" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">成绩排名</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="score-table">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>排名</th>
+                                <th ng-click="ctl.current_single.scorelist.sort(ctl.compare_by_overall_score)"
+                                    class="cursor-pointer">总分 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                                <th ng-click="ctl.current_single.scorelist.sort(ctl.compare_by_test_score)"
+                                    class="cursor-pointer">考试成绩 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                                <th ng-click="ctl.current_single.scorelist.sort(ctl.compare_by_third_score)"
+                                    class="cursor-pointer">平时分 <i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="record in ctl.current_single.scorelist">
+                                <td>
+                                    <p ng-bind="$index+1"></p>
+                                </td>
+                                <td>
+                                    <p ng-bind="record[0]"></p>
+                                </td>
+                                <td>
+                                    <p ng-bind="record[1]"></p>
+                                </td>
+                                <td>
+                                    <p ng-bind="record[2]"></p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="item_add single-item hvr-outline-out button2"
+                       data-dismiss="modal">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//class ranking-->
+
+</div>
 </div>
 
 
